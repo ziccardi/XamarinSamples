@@ -18,7 +18,7 @@ namespace ProgressBarTestAndroid
             CheckBox checkBox = FindViewById<CheckBox>(Resource.Id.checkbox1);
 
             checkBox.CheckedChange += (sender, evt) => {
-                barOfProgression.Visibility = evt.IsChecked ? Android.Views.ViewStates.Visible : Android.Views.ViewStates.Gone;
+                RunOnUiThread(() => { barOfProgression.Visibility =  evt.IsChecked? Android.Views.ViewStates.Visible : Android.Views.ViewStates.Gone; });
             };
         }
     }
